@@ -1,7 +1,7 @@
 ```mermaid
     sequenceDiagram
-        paricipant browser
-        participant server
+        paricipant browser;
+        participant server;
 ```
 sequenceDiagram
     participant browser
