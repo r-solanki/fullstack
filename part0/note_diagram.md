@@ -1,8 +1,7 @@
 ```mermaid
-    info
     sequenceDiagram
-        paricipant browser;
-        participant server;
+        paricipant browser
+        participant server
 
         browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
         activate server
