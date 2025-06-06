@@ -5,6 +5,8 @@
         browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
         activate server
         Note left of server: The server pushes the submitted note to the notes array.
+        server-->>browser: Redirect to Location: exampleapp/notes
+        deactivate server
         %% everything after this is re-doing what the app did on initial load
         browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
         activate server
