@@ -1,22 +1,28 @@
 const App = () => {
   const course = 'Half Stack application development'
-  const part1 = 'Fundamentals of React'
-  const exercises1 = 10
-  const part2 = 'Using props to pass data'
-  const exercises2 = 7
-  const part3 = 'State of a component'
-  const exercises3 = 14
+  const part1 = {
+    name: 'Fundamentals of React',
+    exercises: 10
+  }
+  const part2 = {
+    name: 'Using props to pass data',
+    exercises: 7
+  }
+  const part3 = {
+    name: 'State of a component',
+    exercises: 14
+  }
 
   return (
     <div>
-      <Header course={course}/>
-      <Content
-        part1={part1} exercise1={exercises1}
-        part2={part2} exercise2={exercises2}
-        part3={part3} exercise3={exercises3}
-      >
-      </Content>
-      <Total e1={exercises1} e2={exercises2} e3={exercises3}/>
+       <Header course={course}/>
+       <ContentB
+        part1={part1}
+        part2={part2}
+        part3={part3}
+       >
+       </ContentB>
+      <Total e1={part1.exercises} e2={part2.exercises} e3={part3.exercises}/>
     </div>
   )
 }
@@ -27,22 +33,19 @@ const Header = (props) => {
   )
 }
 
-const Content = (props) => {
+const ContentB = (props) => {
   return (
-  // could refactor to dyanamically generate based on number of parts/exercises
-  <div>
-    <Part part={props.part1} exercise={props.exercise1}></Part>
-    <Part part={props.part2} exercise={props.exercise2}></Part>
-    <Part part={props.part3} exercise={props.exercise3}></Part>
-  </div>
+    <div>
+      <Part data={props.part1}></Part>
+      <Part data={props.part2}></Part>
+      <Part data={props.part3}></Part>
+    </div>
   )
 }
 
 const Part = (props) => {
   return (
-    <>
-      <p>{props.part} {props.exercise}</p>
-    </>
+    <p>{props.data.name} {props.data.exercises}</p>
   )
 }
 
